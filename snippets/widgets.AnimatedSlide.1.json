@@ -1,0 +1,13 @@
+{
+    "id": "widgets.AnimatedSlide.1",
+    "element": "AnimatedSlide",
+    "sourcePath": "lib/src/widgets/implicit_animations.dart",
+    "sourceLine": 1580,
+    "channel": "stable",
+    "serial": "1",
+    "package": "flutter",
+    "library": "widgets",
+    "copyright": null,
+    "description": "This code defines a widget that uses [AnimatedSlide] to translate a [FlutterLogo]\nup or down by the amount of it's height with each press of the corresponding button.",
+    "file": "widgets.AnimatedSlide.1.dart"
+}

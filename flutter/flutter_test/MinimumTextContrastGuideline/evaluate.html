@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no"/>
+  <meta name="description" content="API docs for the evaluate method from the MinimumTextContrastGuideline class, for the Dart programming language."/>
+  <title>evaluate method - MinimumTextContrastGuideline class - flutter_test library - Dart API</title>
+
+  <!-- required because all the links are pseudo-absolute -->
+  <base href="../../"/>
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1"/>
+  <link rel="stylesheet" href="static-assets/styles.css?v1"/>
+  <link rel="icon" href="static-assets/favicon.png?v1"/>
+
+  <!-- style overrides for dartdoc -->
+<style>
+@import 'https://fonts.googleapis.com/css?family=Roboto:500,400italic,300,400,100i';
+@import 'https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round';
+</style>
+
+<link href="https://flutter.github.io/cupertino_icons/css/icons.css" rel="stylesheet" type="text/css"/>
+
+<link href="../assets/overrides.css" rel="stylesheet" type="text/css"/>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round" rel="stylesheet"/>
+<style>
+  /* Rule for sizing the icon. */
+  .md-36 { font-size: 36px; }
+</style>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67589403-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script async="" defer="" src="../assets/api_survey.js"></script>
+
+<!-- Styles and scripting for handling custom code snippets -->
+<link href="../assets/snippets.css" rel="stylesheet" type="text/css"/>
+<script src="../assets/snippets.js"></script>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Flutter API" href="opensearch.xml"/>
+
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="true">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="index.html">Flutter</a></li>
+    <li><a href="flutter_test/flutter_test-library.html">flutter_test</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline-class.html">MinimumTextContrastGuideline</a></li>
+    <li class="self-crumb">evaluate method</li>
+  </ol>
+  <div class="self-name">evaluate</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled="" class="form-control typeahead" placeholder="Loading search..."/>
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+  <div id="external-links" class="btn-group"><a title="View source code" class="source-link" href="https://github.com/flutter/flutter/blob/master/packages/flutter_test/lib/src/accessibility.dart#L197"><i class="material-icons">description</i></a></div>
+<h1><a class="dashingAutolink" name="autolink-30180"></a><a class="dashAnchor" name="//apple_ref/cpp/Method/evaluate"></a><span class="kind-method">evaluate</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr/><span class="type-parameter"><a href="flutter_test/Evaluation-class.html">Evaluation</a></span>&gt;</span></span>
+<span class="name ">evaluate</span>(<wbr/><ol class="parameter-list"><li><span class="parameter" id="evaluate-param-tester"><span class="type-annotation"><a href="flutter_test/WidgetTester-class.html">WidgetTester</a></span> <span class="parameter-name">tester</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Evaluate whether the current state of the <code>tester</code> conforms to the rule.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Future&lt;Evaluation&gt; evaluate(WidgetTester tester) async {
+  final SemanticsNode root = tester.binding.pipelineOwner.semanticsOwner!.rootSemanticsNode!;
+  final RenderView renderView = tester.binding.renderView;
+  final OffsetLayer layer = renderView.debugLayer! as OffsetLayer;
+  ui.Image? image;
+  final ByteData byteData = (await tester.binding.runAsync&lt;ByteData?&gt;(() async {
+    // Needs to be the same pixel ratio otherwise our dimensions won&#39;t match the
+    // last transform layer.
+    image = await layer.toImage(renderView.paintBounds, pixelRatio: 1 / tester.binding.window.devicePixelRatio);
+    return image!.toByteData();
+  }))!;
+  assert(image != null);
+
+  Future&lt;Evaluation&gt; evaluateNode(SemanticsNode node) async {
+    Evaluation result = const Evaluation.pass();
+    if (node.isInvisible || node.isMergedIntoParent || node.hasFlag(ui.SemanticsFlag.isHidden))
+      return result;
+    final SemanticsData data = node.getSemanticsData();
+    final List&lt;SemanticsNode&gt; children = &lt;SemanticsNode&gt;[];
+    node.visitChildren((SemanticsNode child) {
+      children.add(child);
+      return true;
+    });
+    for (final SemanticsNode child in children) {
+      result += await evaluateNode(child);
+    }
+    if (_shouldSkipNode(data)) {
+      return result;
+    }
+
+    // We need to look up the inherited text properties to determine the
+    // contrast ratio based on text size/weight.
+    double? fontSize;
+    bool isBold;
+    final String text = data.label.isEmpty ? data.value : data.label;
+    final List&lt;Element&gt; elements = find.text(text).hitTestable().evaluate().toList();
+    Rect paintBounds;
+    if (elements.length == 1) {
+      final Element element = elements.single;
+      assert(element.renderObject != null &amp;&amp; element.renderObject is RenderBox);
+      final RenderBox renderObject = element.renderObject! as RenderBox;
+      paintBounds = Rect.fromPoints(
+        renderObject.localToGlobal(renderObject.paintBounds.topLeft - const Offset(4.0, 4.0)),
+        renderObject.localToGlobal(renderObject.paintBounds.bottomRight + const Offset(4.0, 4.0)),
+      );
+      final Widget widget = element.widget;
+      final DefaultTextStyle defaultTextStyle = DefaultTextStyle.of(element);
+      if (widget is Text) {
+        final TextStyle effectiveTextStyle = widget.style == null || widget.style!.inherit
+            ? defaultTextStyle.style.merge(widget.style)
+            : widget.style!;
+        fontSize = effectiveTextStyle.fontSize;
+        isBold = effectiveTextStyle.fontWeight == FontWeight.bold;
+      } else if (widget is EditableText) {
+        isBold = widget.style.fontWeight == FontWeight.bold;
+        fontSize = widget.style.fontSize;
+      } else {
+        throw StateError(&#39;Unexpected widget type: ${widget.runtimeType}&#39;);
+      }
+    } else if (elements.length &gt; 1) {
+      return Evaluation.fail(&#39;Multiple nodes with the same label: ${data.label}\n&#39;);
+    } else {
+      // If we can&#39;t find the text node then assume the label does not
+      // correspond to actual text.
+      return result;
+    }
+
+    if (_isNodeOffScreen(paintBounds, tester.binding.window)) {
+      return result;
+    }
+    final List&lt;int&gt; subset = _colorsWithinRect(byteData, paintBounds, image!.width, image!.height);
+    // Node was too far off screen.
+    if (subset.isEmpty) {
+      return result;
+    }
+    final _ContrastReport report = _ContrastReport(subset);
+    // If rectangle is empty, pass the test.
+    if (report.isEmptyRect) {
+      return result;
+    }
+    final double contrastRatio = report.contrastRatio();
+    const double delta = -0.01;
+    double targetContrastRatio;
+    if ((isBold &amp;&amp; (fontSize ?? _kDefaultFontSize) &gt; kBoldTextMinimumSize) || (fontSize ?? _kDefaultFontSize) &gt; kLargeTextMinimumSize) {
+      targetContrastRatio = kMinimumRatioLargeText;
+    } else {
+      targetContrastRatio = kMinimumRatioNormalText;
+    }
+    if (contrastRatio - targetContrastRatio &gt;= delta) {
+      return result + const Evaluation.pass();
+    }
+    return result + Evaluation.fail(
+      &#39;$node:\nExpected contrast ratio of at least &#39;
+      &#39;$targetContrastRatio but found ${contrastRatio.toStringAsFixed(2)} for a font size of $fontSize. &#39;
+      &#39;The computed light color was: ${report.lightColor}, &#39;
+      &#39;The computed dark color was: ${report.darkColor}\n&#39;
+      &#39;See also: https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html&#39;
+    );
+  }
+  return evaluateNode(root);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled="" class="form-control typeahead" placeholder="Loading search..."/>
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="index.html">Flutter</a></li>
+  <li><a href="flutter_test/flutter_test-library.html">flutter_test</a></li>
+  <li><a href="flutter_test/MinimumTextContrastGuideline-class.html">MinimumTextContrastGuideline</a></li>
+  <li class="self-crumb">evaluate method</li>
+</ol>
+
+
+    <h5>MinimumTextContrastGuideline class</h5>
+    <ol>
+
+
+
+    <li class="section-title">
+      <a href="flutter_test/MinimumTextContrastGuideline-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/description.html">description</a></li>
+    <li class="inherited"><a href="dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="flutter_test/MinimumTextContrastGuideline-class.html#instance-methods">Methods</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/evaluate.html">evaluate</a></li>
+    <li class="inherited"><a href="dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="flutter_test/MinimumTextContrastGuideline-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+    <li class="section-title"><a href="flutter_test/MinimumTextContrastGuideline-class.html#constants">Constants</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/kBoldTextMinimumSize-constant.html">kBoldTextMinimumSize</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/kLargeTextMinimumSize-constant.html">kLargeTextMinimumSize</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/kMinimumRatioLargeText-constant.html">kMinimumRatioLargeText</a></li>
+    <li><a href="flutter_test/MinimumTextContrastGuideline/kMinimumRatioNormalText-constant.html">kMinimumRatioNormalText</a></li>
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    Flutter
+      0.0.0
+  </span>
+
+  <script src="footer.js"></script>
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+
+
+
+
+</body></html>

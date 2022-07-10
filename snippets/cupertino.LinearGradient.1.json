@@ -1,0 +1,13 @@
+{
+    "id": "cupertino.LinearGradient.1",
+    "element": "LinearGradient",
+    "sourcePath": "lib/src/painting/gradient.dart",
+    "sourceLine": 368,
+    "channel": "stable",
+    "serial": "1",
+    "package": "flutter",
+    "library": "cupertino",
+    "copyright": null,
+    "description": "This sample draws a picture that looks like vertical window shades by having\na [Container] display a [BoxDecoration] with a [LinearGradient].",
+    "file": "cupertino.LinearGradient.1.dart"
+}

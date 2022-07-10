@@ -1,0 +1,13 @@
+{
+    "id": "material.ScaffoldState.showSnackBar.1",
+    "element": "ScaffoldState.showSnackBar",
+    "sourcePath": "lib/src/material/scaffold.dart",
+    "sourceLine": 2059,
+    "channel": "stable",
+    "serial": "1",
+    "package": "flutter",
+    "library": "material",
+    "copyright": null,
+    "description": "Here is an example of showing a [SnackBar] when the user presses a button.",
+    "file": "material.ScaffoldState.showSnackBar.1.dart"
+}

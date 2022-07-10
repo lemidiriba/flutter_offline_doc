@@ -1,0 +1,13 @@
+{
+    "id": "material.Scrollbar.2",
+    "element": "Scrollbar",
+    "sourcePath": "lib/src/material/scrollbar.dart",
+    "sourceLine": 61,
+    "channel": "stable",
+    "serial": "2",
+    "package": "flutter",
+    "library": "material",
+    "copyright": null,
+    "description": "When isAlwaysShown is true, the scrollbar thumb will remain visible without the\nfade animation. This requires that a ScrollController is provided to controller,\nor that the PrimaryScrollController is available.",
+    "file": "material.Scrollbar.2.dart"
+}

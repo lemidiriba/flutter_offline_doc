@@ -1,0 +1,13 @@
+{
+    "id": "painting.LinearGradient.1",
+    "element": "LinearGradient",
+    "sourcePath": "lib/src/painting/gradient.dart",
+    "sourceLine": 368,
+    "channel": "stable",
+    "serial": "1",
+    "package": "flutter",
+    "library": "painting",
+    "copyright": null,
+    "description": "This sample draws a picture that looks like vertical window shades by having\na [Container] display a [BoxDecoration] with a [LinearGradient].",
+    "file": "painting.LinearGradient.1.dart"
+}
